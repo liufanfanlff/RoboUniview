@@ -1,0 +1,4 @@
+# ninja log v5
+49	37615	1711530748000000000	/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/build/temp.linux-x86_64-3.8/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/src/cpu/ms_deform_attn_cpu.o	47ba4b1a63960a8c
+73	68979	1711530780000000000	/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/build/temp.linux-x86_64-3.8/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/src/cuda/ms_deform_attn_cuda.o	515b0620e9a4f0c3
+34	80701	1711530791000000000	/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/build/temp.linux-x86_64-3.8/mnt/dolphinfs/hdd_pool/docker/user/hadoop-vacv/liufanfan/workspace/RoboFlamingo/lff_vision/ops/bevformer/src/vision.o	1db490a75aab9cf

@@ -1,0 +1,31 @@
+MODEL:
+  DEPTH: 0
+  LOSS_FUN: cross_entropy
+  NUM_CLASSES: 1000
+  TYPE: regnet
+NUM_GPUS: 8
+OUT_DIR: /workspace/group_share/adc-perception-pruning/lipy/exp/static_xnet/imagenet_pretrain/regnetx0.95G_self
+PORT_RANGE:
+- 10000
+- 65000
+PREC_TIME:
+  NUM_ITER: 30
+  WARMUP_ITER: 3
+REGNET:
+  BLOCK_TYPE: res_bottleneck_block
+  BOT_MUL: 1.0
+  DEPTH: 16
+  GROUP_W: 32
+  SE_ON: false
+  SE_R: 0.25
+  STEM_TYPE: simple_stem_in
+  STEM_W: 32
+  STRIDE: 2
+  W0: 56
+  WA: 35.73
+  WM: 2.28
+RESNET:
+  NUM_GROUPS: 1
+  STRIDE_1X1: true
+  TRANS_FUN: basic_transform
+  WIDTH_PER_GROUP: 64

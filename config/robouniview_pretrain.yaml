@@ -1,0 +1,146 @@
+fusion_mode: UVformer
+alignment_layer: Linear
+load_from_checkpoint: null 
+from_scratch: false
+resume_from_checkpoint: null
+train_uvformer: true
+colour_aug: [0.8,0.8,0.8,0.5] #brightness_factor, contrast_factor, saturation_factor, hue_factor
+occ_loss: true
+occ_loss_weight: [0.5,0.25,0.25,0.25] # occ, r, g, b 
+train_action: false
+eval: false
+rotate: true
+data_path_list: [/CALVIN/calvin_calib0,
+                 /CALVIN/calvin_calib1,
+                 /CALVIN/calvin_multi_calib]
+state_matrixs_path: "/CALVIN/calvin_calib0" #Original camera settings,be careful!!, Original camera settings, Using the extrinsic parameters of the gripper camera to represent the gripper state matrix
+loss_weight: {occ: 1, action: 0}
+validation: false
+data_tasks_groups: None
+num_epochs: 60
+window_size: 1
+learning_rate: 0.001
+lr_scheduler: constant
+calvin_dataset: /CALVIN/task_D
+batch_size_calvin: 60
+save_dir: 
+
+original_image_shapes:
+  rgb_static: [200, 200, 3]
+  rgb_gripper: [84, 84, 3]
+cam_trained: ["rgb_static","rgb_gripper"]
+image_feature_out: [0]
+extrinsic_jitter: 0
+UVformer:
+  cam_trained: ["rgb_static","rgb_gripper"]
+  original_image_shapes:
+    rgb_static: [200, 200, 3]
+    rgb_gripper: [84, 84, 3]
+  type: DeformableTransformer
+  transformer_config:
+    task_name: LLD
+    hidden_dim: 1024
+    nhead: 8
+    num_decoder_layers: 2
+    dim_feedforward: 1024
+    dropout: 0.1
+    PreProcessing: {left: 0.5, right: 0.5, front: 0.5 , back: 0.5, dilate: 1}
+    grid_resolution: [0.05, 0.05, 0.1]
+    ref_z_range: [0.3, 0.8]
+    rotate: true
+    upsample: 2
+    self_attn_type: cosformer
+    reuse_ref_point: false
+    norm: None
+    use_ffn: false
+PETR:
+  hidden_dim: 1024
+  depth_step: 0.05
+  depth_num: 4
+  depth_start: 0.05
+  position_range: [-0.2, -0.2, -0.05, 0.2, 0.2, 0.3]
+
+vision_encoder_path: ViT-L-14
+replan: -1
+visualize: false
+vision_encoder_pretrained: openai
+lm_path: /checkpoints/mpt-1b-redpajama-200b-dolly
+calvin_conf_path: /calvin_models/conf
+batch_size_sim: 1
+calvin_seq_path: /eval_sequences.json
+tokenizer_path: /checkpoints/mpt-1b-redpajama-200b-dolly
+reset: false
+diverse_inst: false
+future_act_len: -1
+cross_attn_every_n_layers: 4
+run_name: RobotFlamingoDBG
+use_media_placement_augmentation: false
+offline: false
+logging_steps: 100
+clip_cache_dir: /checkpoints
+gradient_accumulation_steps: 1
+openflamingo_checkpoint: /checkpoints/OpenFlamingo-3B-vitl-mpt1b-langinstruct/checkpoint.pt
+delete_previous_checkpoint: false
+seed: 42
+loss_multiplier_calvin: 1.0
+warmup_steps: 5000
+local_rank: 0
+weight_decay: 0.1
+precision: fp32
+workers: 2
+train_num_samples_calvin: 100
+dataset_resampled: true
+dist_url: env://
+dist_backend: nccl
+horovod: false
+no_set_device_rank: false
+report_to_wandb: false
+wandb_project: RoboFlamingo_D2D
+wandb_entity: null
+save_checkpoints_to_wandb: false
+freeze_embed: false
+use_gripper: true
+use_state: true
+hist_window: 1
+eval_hist_size: -1
+sep_resampler: false
+train_params: -1
+rgb_pad: 10
+gripper_pad: 4
+n_timesteps: 150
+predict_epsilon: false
+head_type: lstm
+n_obs_steps: 6
+diff_horizon: 32
+last_action: false
+use_hist: false
+traj_cons: true
+debug: false
+sep_lm_head: false
+clip_state: false
+unfreeze_vit: false
+text_aug: false
+residual: false
+tcp_rel: false
+dif_ws: false
+partial_data: false
+freeze_sampler: false
+fwd_pred: false
+fwd_pred_hand: false
+no_pretrain: false
+real_data: false
+no_image_patch: false
+cotrain: false
+batch_size_vl: 20
+vl_task_weights: 0.005
+global_latent: 1
+save_every_iter: 10000
+pad_length: -1
+hidden_size: 768
+decoder_type: lstm
+data_type: calvin
+min_window_size: 12
+max_window_size: 24
+llm_name: mpt_dolly_3b
+pooling: max
+multi_step_action: 1
