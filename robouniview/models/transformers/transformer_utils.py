@@ -6,6 +6,7 @@ import torch
 import numpy as np
 import cv2
 from math import sin, cos
+import pybullet as pb
 
 
 def parse_numpy_dtype(dtype: str):
@@ -212,3 +213,40 @@ def unpack_calib(calib_batch: dict, bs):
         calib_list.append(curr_calib)
 
     return calib_list
+
+
+
+def deproject(cam, depth, homogeneous=False, sanity_check=False):
+    """
+    Deprojects a pixel point to 3D coordinates
+    Args
+        point: tuple (u, v); pixel coordinates of point to deproject
+        depth_img: np.array; depth image used as reference to generate 3D coordinates
+        homogeneous: bool; if true it returns the 3D point in homogeneous coordinates,
+                     else returns the world coordinates (x, y, z) position
+    Output
+        (x, y, z): (3, npts) np.array; world coordinates of the deprojected point
+    """
+    depth_img = np.ones((84,84))*depth
+    h, w = depth_img.shape
+    u, v = np.meshgrid(np.arange(w), np.arange(h))
+    u, v = u.ravel(), v.ravel()
+
+    # Unproject to world coordinates
+    T_world_cam = np.linalg.inv(np.array(cam.viewMatrix))
+    z = depth_img[v, u]
+    foc = cam.height / (2 * np.tan(np.deg2rad(cam.fov) / 2))
+    x = (u - cam.width // 2) * z / foc
+    y = -(v - cam.height // 2) * z / foc
+    z = -z
+    ones = np.ones_like(z)
+
+    cam_pos = np.stack([x, y, z, ones], axis=0)
+    world_pos = T_world_cam @ cam_pos
+
+    # Sanity check by using camera.deproject function.  Check 2000 points.
+
+    if not homogeneous:
+        world_pos = world_pos[:3]
+
+    return world_pos

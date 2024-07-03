@@ -31,7 +31,8 @@ def get_gripper_camera_view_matrix(cam):
     return view_matrix
 
 
-def deproject(cam, depth, homogeneous=False, sanity_check=False):
+
+def deproject(cam, depth_img, homogeneous=False, sanity_check=False):
     """
     Deprojects a pixel point to 3D coordinates
     Args
@@ -42,7 +43,6 @@ def deproject(cam, depth, homogeneous=False, sanity_check=False):
     Output
         (x, y, z): (3, npts) np.array; world coordinates of the deprojected point
     """
-    depth_img = np.ones((84,84))*depth
     h, w = depth_img.shape
     u, v = np.meshgrid(np.arange(w), np.arange(h))
     u, v = u.ravel(), v.ravel()

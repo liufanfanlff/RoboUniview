@@ -4,8 +4,8 @@ import torch.nn.functional as F
 import numpy as np
 import math
 from torch import Tensor, nn
-from robouniview.data.data_utils import cam, deproject
-from robouniview.models.transformers.transformer_utils import inverse_sigmoid
+from robouniview.data.data_utils import cam
+from robouniview.models.transformers.transformer_utils import inverse_sigmoid, deproject
 
 # class cam:
 #     def __init__(self,viewMatrix,height,width,fov):

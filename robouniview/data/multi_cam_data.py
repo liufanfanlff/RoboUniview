@@ -824,10 +824,10 @@ class DiskCalvinDataset(BaseCalvinDataset):
             rgb['rgb_gripper'] = np.array(rgb['rgb_gripper'])
             rgbs.append(rgb)
             static_rgb =  np.reshape(
-                rgb['rgb_static'], (40000,3)
+                rgb['rgb_static'], ( rgb['rgb_static'].shape[0]*rgb['rgb_static'].shape[1], 3)
             )
             gripper_rgb =  np.reshape(
-                rgb['rgb_gripper'], (7056,3)
+                rgb['rgb_gripper'], (rgb['rgb_gripper'].shape[0]*rgb['rgb_gripper'].shape[1], 3)
             )
             pcd_rgb = np.concatenate([static_rgb,gripper_rgb],axis=0)
             pcd_rgb = pcd_rgb/255
