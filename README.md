@@ -44,7 +44,10 @@ We report results on the [CALVIN](https://github.com/mees/calvin) benchmark.
 | 3D Diffuser Actor        | ABC              | D                          | 0.922      |0.787       |0.639       |0.512       |0.412       |3.270     |
 | Ours                     | ABC              | D                          | **0.942**  | **0.842**  | **0.734**  | **0.622**  | **0.507**  | **3.647**|
 
-
+## checkpoint
+| Training Data    |  checkpoint         |
+|------------------|---------------------|
+| D                |[huggingface](https://huggingface.co/liufanfanlff/RoboUniView/tree/main/checkpoint_D_D)|
 
 ## generate_data:
 The original CALVIN dataset does not include camera parameters; we collected images and camera parameters in a simulated environment based on the original data's state and saved them for training. The new camera setting data were generated in the same way.
