@@ -1,4 +1,4 @@
-robouniview/models/transformers/ops/uvformer#!/usr/bin/env bash
+#!/usr/bin/env bash
 # ------------------------------------------------------------------------------------------------
 # Deformable DETR
 # Copyright (c) 2020 SenseTime. All Rights Reserved.
