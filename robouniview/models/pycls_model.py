@@ -78,14 +78,6 @@ _MODEL_ZOO_WEIGHTS = {
     "RegNetX-400MF": "dds_baselines/160905967/RegNetX-400MF_dds_8gpu.pyth",
     "RegNetX-600MF": "dds_baselines/160906442/RegNetX-600MF_dds_8gpu.pyth",
     "RegNetX-800MF": "dds_baselines/160906036/RegNetX-800MF_dds_8gpu.pyth",
-    "RegNetX-950MF": (
-        "/workspace/group_share/adc-perception-pruning/lipy/exp/static_xnet/"
-        "imagenet_pretrain/regnetx0.95G_self/model.pyth"
-    ),
-    "RegNetX-1.4GF": (
-        "/workspace/group_share/adc-perception-pruning/lipy/exp/static_xnet/"
-        "imagenet_pretrain/regnetx1.4G_self/model.pyth"
-    ),
     "RegNetX-1.6GF": "dds_baselines/160990626/RegNetX-1.6GF_dds_8gpu.pyth",
     "RegNetX-3.2GF": "dds_baselines/160906139/RegNetX-3.2GF_dds_8gpu.pyth",
     "RegNetX-4.0GF": "dds_baselines/160906383/RegNetX-4.0GF_dds_8gpu.pyth",
