@@ -32,5 +32,5 @@ export EVALUTION_ROOT=$(pwd)
 
 #python3 -m torch.distributed.launch --nnodes=1 --nproc_per_node=2  --master_port=6042 robouniview/train/train_calvin.py \ --use_aug  \
 #python3 robouniview/new_data/generate_data.py 
-python3 robouniview/new_data/generate_data.py 
+python3 robouniview/generate_data/generate_data.py 
    
