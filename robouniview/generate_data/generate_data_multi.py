@@ -16,7 +16,7 @@ dataset_path = '.../CALVIN/task_ABC_D_'
 
 
 from pathlib import Path
-from robouniview.new_data.data import CalvinDataset
+from robouniview.generate_data.data import CalvinDataset
 import argparse
 import copy
 import glob
