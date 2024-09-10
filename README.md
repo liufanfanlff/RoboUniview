@@ -56,6 +56,12 @@ python3 robouniview/generate_data/generate_data.py
 ```
 
 ## Training the model (using DDP):
+Install MultiScaleDeformableAttention==1.0：
+```
+cd robouniview/models/transformers/ops/uvformer
+sh make.sh
+```
+robouniview/models/transformers/ops/uvformer/make.sh
 pretrain:
 ```
 torchrun --nnodes=1 --nproc_per_node=8  robouniview/train/train.py \
