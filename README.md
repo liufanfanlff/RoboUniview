@@ -3,7 +3,7 @@
 
 
 
-<h1 align="center">RoboUniView: Visual-Language Model with Unified View Representation for Robotic Manipulaiton</h1>
+<h1 align="center">RoboUniView: Visual-Language Model with Unified View Representation for Robotic Manipulation</h1>
 
 ![Python 3.8](https://img.shields.io/badge/Python-3.8-blue)
 
