@@ -48,11 +48,11 @@ if not os.path.exists(new_calvin):
 urdf_path = new_path +'pjt/calvin/calvin_env/data/franka_panda/panda_longer_finger.urdf'
 config_path = dataset_path_env + 'validation/.hydra/merged_config.yaml'
 
-cam_config_calib0 = {'static': {'_target_': 'calvin_env.camera.static_camera.StaticCamera', 'name': 'static', 'fov': 12, 'aspect': 1, 
+cam_config_calib0 = {'static': {'_target_': 'calvin_env.camera.static_camera.StaticCamera', 'name': 'static', 'fov': 10, 'aspect': 1, 
                         'nearval': 0.01, 'farval': 10, 'width': 200, 'height': 200, 
                         'look_at': [-0.02262423511594534, -0.0302329882979393, 0.3920000493526459], 
                         'look_from': [2.871459009488717, -2.1666602199425595, 2.555159848480571], 
-                        'up_vector': [-5, 1, 1]}, 
+                        'up_vector': [0.4041403970338857, 0.22629790978217404, 0.8862616969685161]}, 
             'gripper': {'_target_': 'calvin_env.camera.gripper_camera.GripperCamera', 'name': 'gripper', 'fov': 75, 'aspect': 1, 
                         'nearval': 0.01, 'farval': 2, 'width': 84, 'height': 84},
             'xyzrpy':'\t  <origin xyz="-0.1 0 0" rpy="1.3  0 -1.57"/>\n'}
@@ -64,19 +64,19 @@ cam_config_calib1 = {'static': {'_target_': 'calvin_env.camera.static_camera.Sta
                         'up_vector': [-5, 1, 1]}, 
             'gripper': {'_target_': 'calvin_env.camera.gripper_camera.GripperCamera', 'name': 'gripper', 'fov': 75, 'aspect': 1, 
                         'nearval': 0.01, 'farval': 2, 'width': 84, 'height': 84},
-            'xyzrpy':'\t  <origin xyz="-0.1 0 0" rpy="1.57 -0.27 3.14"/>\n'}
+            'xyzrpy':'\t  <origin xyz="-0.1 0 0" rpy="1.3  0 -1.57"/>\n'}
 
-cam_config_calib2 = {'static': {'_target_': 'calvin_env.camera.static_camera.StaticCamera', 'name': 'static', 'fov': 10, 'aspect': 1, 
+cam_config_calib2 = {'static': {'_target_': 'calvin_env.camera.static_camera.StaticCamera', 'name': 'static', 'fov': 12, 'aspect': 1, 
                         'nearval': 0.01, 'farval': 10, 'width': 200, 'height': 200, 
                         'look_at': [-0.02262423511594534, -0.0302329882979393, 0.3920000493526459], 
                         'look_from': [2.871459009488717, -2.1666602199425595, 2.555159848480571], 
-                        'up_vector': [0.4041403970338857, 0.22629790978217404, 0.8862616969685161]}, 
+                        'up_vector': [-5, 1, 1]}, 
             'gripper': {'_target_': 'calvin_env.camera.gripper_camera.GripperCamera', 'name': 'gripper', 'fov': 75, 'aspect': 1, 
                         'nearval': 0.01, 'farval': 2, 'width': 84, 'height': 84},
-            'xyzrpy':'\t  <origin xyz="-0.1 0 0" rpy="1.3  0 -1.57"/>\n'}
+            'xyzrpy':'\t  <origin xyz="-0.1 0 0" rpy="1.57 -0.27 3.14"/>\n'}
 
 
-cam_config = cam_config_calib1
+cam_config = cam_config_calib0
     
 def get_gripper_camera_view_matrix(cam):
     camera_ls = pb.getLinkState(
