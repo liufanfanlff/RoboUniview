@@ -51,6 +51,74 @@ We report results on the [CALVIN](https://github.com/mees/calvin) benchmark.
 
 ## generate_data:
 The original CALVIN dataset does not include camera parameters; we collected images and camera parameters in a simulated environment based on the original data's state and saved them for training. The new camera setting data were generated in the same way.
+
+
+For example, using CALVIN D_D:
+
+1. Download the dataset and save it in the following format.
+
+```
+.../task_D_D
+    - training
+        - lang_annotations
+            auto_lang_ann.npy
+        *.npy
+        *.npy
+        ...
+    - validation
+        - lang_annotations
+            auto_lang_ann.npy
+        .hydra
+            config.yaml
+            hydra.yaml
+            merged_config.yaml
+            overrides.yaml
+        *npy
+        *npy
+        ...
+ ```   
+2. Create new folders
+
+``` mkdir  .../CALVIN/calvin_calib0/ ``` 
+
+``` mkdir  .../CALVIN/calvin_calib0/pjt ```
+
+``` mkdir  .../CALVIN/calvin_calib0/env_config ```
+
+``` mkdir  .../CALVIN/calvin_calib0/env_config/validation/ ```
+
+``` mkdir  .../CALVIN/calvin_calib0/training_npz_pcd_new ```
+
+3. Clone the Calvin project in the .../CALVIN/calvin_calib0/pjt folder.
+```
+cd .../CALVIN/calvin_calib0/pjt
+git clone https://github.com/mees/calvin.git 
+```
+
+4. Copy the .hydra folder from the dataset to .../CALVIN/calvin_calib0/env_config/validation/
+``` cp -r .../task_D_D/validation/.hydra  .../CALVIN/calvin_calib0/env_config/validation/ ```
+
+get：
+```
+.../CALVIN/calvin_calib0/
+    - pjt
+        - calvin
+            - calvin_models
+            - calvin_env
+                - tacto_env
+                ...
+            ...
+    - env_config
+        - validation
+            - .hydra
+                config.yaml
+                hydra.yaml
+                merged_config.yaml
+                overrides.yaml
+    - training_npz_pcd_new
+
+```
+5. In robouniview/generate_data/generate_data.py, select the predefined three camera parameters at line 79, then run the script to generate data.
 ```
 python3 robouniview/generate_data/generate_data.py 
 ```
