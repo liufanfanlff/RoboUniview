@@ -11,10 +11,10 @@ train_action: true
 eval: true
 env_resample: true
 rotate: true
-data_path_list: [ "/generate_data_path_calib0",
-                "/generate_data_path_calib1"
-                "/generate_data_path_calib2"]
-state_matrixs_path: "/generate_data_path" #Original camera settings,be careful!!, Original camera settings, Using the extrinsic parameters of the gripper camera to represent the gripper state matrix
+data_path_list: [ "/CALVIN/calvin_calib0",
+                "/CALVIN/calvin_calib1"
+                "/CALVIN/calvin_calib2"]
+state_matrixs_path: "/CALVIN/calvin_calib0" #Original camera settings,be careful!!, Original camera settings, Using the extrinsic parameters of the gripper camera to represent the gripper state matrix
 loss_weight: {occ: 0, action: 1}
 validation: false
 data_tasks_groups: None
