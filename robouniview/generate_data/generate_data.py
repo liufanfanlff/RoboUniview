@@ -9,11 +9,11 @@ current_path = os.getcwd()
 robouniview_path =  current_path  
 env['PATH'] = env['PATH'] + ':'+  robouniview_path
 sys.path.append(robouniview_path)
-new_path = '.../new_calvin_ABC_D_1/'
+new_path = '.../CALVIN/calvin_calib0/'
 sys.path.append(new_path+'pjt/calvin/calvin_models')
 sys.path.append(new_path+'pjt/calvin/calvin_env')
 sys.path.append(new_path+'pjt/calvin/calvin_env/tacto_env')
-dataset_path = '.../CALVIN/task_ABC_D_formal'
+dataset_path = '.../CALVIN/task_ABC_D'
 
     
 
