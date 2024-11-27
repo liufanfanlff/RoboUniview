@@ -62,8 +62,8 @@ For example, using CALVIN D_D:
     - training
         - lang_annotations
             auto_lang_ann.npy
-        *.npy
-        *.npy
+        *.npz
+        *.npz
         ...
     - validation
         - lang_annotations
@@ -73,8 +73,8 @@ For example, using CALVIN D_D:
             hydra.yaml
             merged_config.yaml
             overrides.yaml
-        *npy
-        *npy
+        *npz
+        *npz
         ...
  ```   
 2. Create new folders
