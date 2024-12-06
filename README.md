@@ -79,16 +79,18 @@ For example, using CALVIN D_D:
  ```   
 2. Create new folders
 
-``` mkdir  .../CALVIN/calvin_calib0/ ``` 
+```
+mkdir  .../CALVIN/calvin_calib0/ 
 
-``` mkdir  .../CALVIN/calvin_calib0/pjt ```
+mkdir  .../CALVIN/calvin_calib0/pjt 
 
-``` mkdir  .../CALVIN/calvin_calib0/env_config ```
+mkdir  .../CALVIN/calvin_calib0/env_config 
 
-``` mkdir  .../CALVIN/calvin_calib0/env_config/validation/ ```
+mkdir  .../CALVIN/calvin_calib0/env_config/validation/ 
 
-``` mkdir  .../CALVIN/calvin_calib0/training_npz_pcd_new ```
+mkdir  .../CALVIN/calvin_calib0/training_npz_pcd_new
 
+```
 3. Clone the Calvin project in the .../CALVIN/calvin_calib0/pjt folder.
 ```
 cd .../CALVIN/calvin_calib0/pjt
