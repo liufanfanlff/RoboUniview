@@ -179,7 +179,7 @@ License: [MIT](https://github.com/RoboFlamingo/RoboFlamingo/blob/main/LICENSE)
 ## Cite our work:
 ```
 @article{li2024RoboUniView
-  title     = {RoboUniView: Visual-Language Model with Unified View Representation for Robotic Manipulaiton},
+  title     = {RoboUniView: Visual-Language Model with Unified View Representation for Robotic Manipulation},
   author    = {Liu, Fanfan and Yan, Feng and Zheng, Liming and Huang, Yiyang and Feng, Chengjian and Ma, Lin},
   journal={arXiv preprint 2406.18977},
   year={2024}
