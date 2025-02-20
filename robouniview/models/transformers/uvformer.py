@@ -169,12 +169,7 @@ class DeformableTransformer(nn.Module):
         upsample_ratio = transformer_config.get('upsample', 1)
         assert math.log(upsample_ratio, 2).is_integer()
         upsample_layers = []
-        while upsample_ratio > 1:
-            upsample_layers.append(nn.ConvTranspose2d(d_model, d_model, 4, 2, 1, bias=False))
-            upsample_layers.append(nn.BatchNorm2d(d_model))
-            upsample_layers.append(nn.ReLU(True))
-            upsample_ratio /= 2
-        self.upsample = nn.Sequential(*upsample_layers)
+        
         self._reset_parameters()
 
     def setup_input_proj(self):
@@ -366,7 +361,7 @@ class DeformableTransformer(nn.Module):
         hs = hs / valid_weight
         uv_feat = hs.permute(0, 2, 1).contiguous()  # b, c, hw
         uv_feat = uv_feat.reshape(bs, c, self.uv_x, self.uv_y)
-        # upsample before spatial alignment
+        
         return uv_feat
 
 
